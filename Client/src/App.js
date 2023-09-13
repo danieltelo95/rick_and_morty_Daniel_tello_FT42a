@@ -10,6 +10,7 @@ import ErrorPage from './components/ErrorPage';
 import Form from './components/Form';
 import Favorites from './components/Favorites';
 
+const URL = 'http://localhost:3001/rickandmorty/login/';
 
 function App() {
 
@@ -18,12 +19,20 @@ function App() {
    const EMAIL = '';
    const PASSWORD = '';
 
-   function loginHandler(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
+   const loginHandler = async (userData) => {
+      try {
+         const { email, password } = userData;
+         const { data } = await axios(URL + `?email=${email}&password=${password}`)         
+         const { access } = data;
+
+            setAccess(access);
+            access && navigate('/home');
+
+      } catch (error) {
+         console.log(error.message);
+      }
    }
-   }
+
 
    useEffect(() => {
       !access && navigate('/');
@@ -31,22 +40,15 @@ function App() {
 
    let [characters, setCharacters] = useState([]);
 
-   const onSearch = (id) => {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-         .then(({ data }) => {
+   const onSearch = async (id) => {
+      try {
+         const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               alert('¡No hay personajes con este ID!');
-            }
-         })
-         .catch(error => {
-            if (error.response && error.response.status === 404) {
-               alert('¡No hay personajes con este ID!');
-            } else {
-               console.error('An error occurred:', error);
-            }
-         });
+            }             
+         } catch (error) {
+            alert('¡No hay personajes con este ID!');
+      }
    }
 
    const onClose = (id) => {
@@ -70,6 +72,7 @@ function App() {
       </div>
    );
 }
+
 
 export default App
 

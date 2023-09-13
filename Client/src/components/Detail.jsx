@@ -43,10 +43,6 @@ useEffect(() => {
                 <h3>Origin:</h3>
                 <p>{character.origin?.name}</p>
             </div>
-            <div>
-                <h3>Location</h3> 
-                <p>{character.Location?.name}</p>
-            </div>
         </div>
     )
 
