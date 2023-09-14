@@ -22,6 +22,4 @@ server.use((req, res, next) => {
 
 server.use('/rickandmorty', router)
 
-module.exports = {
-    server
-}
+module.exports = server
