@@ -1,6 +1,6 @@
-import Card from "./Card"
+import Card from "../Cards/Card"
 import { connect, useDispatch } from "react-redux"
-import {filterCards, orderCards} from "../redux/actions"
+import {filterCards, orderCards} from "../../redux/actions"
 import {useState} from'react'
 
 const Favorites = ({ myFavorites }) => {

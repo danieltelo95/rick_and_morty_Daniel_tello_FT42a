@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { validate } from "../validation"
+import { validate } from "../../validation"
 
 const Form = ({loginHandler}) => {
 

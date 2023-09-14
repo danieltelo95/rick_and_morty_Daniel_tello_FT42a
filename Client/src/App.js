@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cards from './components/Cards';
-import Nav from './components/Nav';
-import About from './components/About';
-import Detail from './components/Detail';
-import ErrorPage from './components/ErrorPage';
-import Form from './components/Form';
-import Favorites from './components/Favorites';
+import Nav from './components/NavBar/Nav';
+import About from './components/About/About';
+import Detail from './components/Detail/Detail';
+import ErrorPage from './components/ErrorPage/ErrorPage';
+import Form from './components/Form/Form';
+import Favorites from './components/Favorites/Favorites';
 
 const URL = 'http://localhost:3001/rickandmorty/login/';
 
