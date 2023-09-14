@@ -18,7 +18,7 @@ server.use((req, res, next) => {
        'GET, POST, OPTIONS, PUT, DELETE'
     );
     next();
- });
+});
 
 server.use('/rickandmorty', router)
 
