@@ -2,13 +2,14 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Cards from './components/Cards';
+
+import Cards from './components/Card/Cards.jsx';
 import Nav from './components/NavBar/Nav';
-import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
+import About from './components/About/About';
 
 const URL = 'http://localhost:3001/rickandmorty/login/';
 
@@ -75,16 +76,3 @@ function App() {
 
 
 export default App
-
-   // const example = {
-   //    id: 1,
-   //    name: 'Rick Sanchez',
-   //    status: 'Alive',
-   //    species: 'Human',
-   //    gender: 'Male',
-   //    origin: {
-   //       name: 'Earth (C-137)',
-   //       url: 'https://rickandmortyapi.com/api/location/1',
-   //    },
-   //    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-   // };

@@ -39,14 +39,14 @@
     color: white;
 }
 
-.imageContainer {
+imageContainer {
     position: relative;
     text-align: center;
     display: inline-block;
     margin-bottom: 5px;
 }
 
-.name {
+name {
     position: absolute;
     width: 100%;
     top: 50%;
@@ -58,7 +58,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.characterImage {
+characterImage {
     display: block;
     width: 100%;
     height: auto;
