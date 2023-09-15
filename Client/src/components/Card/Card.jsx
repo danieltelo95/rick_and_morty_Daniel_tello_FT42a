@@ -35,13 +35,13 @@ function Card( {id, name, species, gender, image, onClose, addFav, removeFav, my
          <button onClick={handleFavorite}>{isFav? '❤️' : '🤍'}</button>
          <img className={style.characterImage} src={image} alt='' />
             <NavLink to={`/detail/${id}`}>
-               <h2 className={style.name} >Nombre:{name}</h2>
+               <h2 className={style.name} >{name}</h2>
             </NavLink>                 
          <button className ={style.closeButton} onClick={() => onClose(id)}>X</button>        
       </div>
       <div className ={style.atributes}>
-         <h2>Species:{species} </h2>
-         <h2>Gender:{gender} </h2>
+         <h2>{species} </h2>
+         <h2>{gender} </h2>
       </div>       
       </div>
          
