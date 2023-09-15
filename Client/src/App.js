@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from './assets/logo.png'
 
 import Cards from './components/Card/Cards.jsx';
 import Nav from './components/NavBar/Nav';
@@ -60,6 +61,7 @@ function App() {
 
    return (
       <div className='App'>
+         <img className='title' src={logo} alt='logo'/>
          
          <Nav onSearch={onSearch} />
          <Routes>
