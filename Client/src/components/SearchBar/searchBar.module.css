@@ -1,0 +1,10 @@
+.searchbar{
+    margin-top: 30px;
+    height: 30px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
