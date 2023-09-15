@@ -4,7 +4,37 @@
     width: 70%;
     display: flex;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
+.searchinput{
+  width: auto;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.searchinput:focus {
+    border-color: #ff6b6b; 
+  }
 
 
+  .searchinput::-webkit-input-placeholder {
+    color: transparent;
+  }
+  
+  .searchinput::-moz-placeholder {
+    color: transparent;
+  }
+  
+  .searchinput:-ms-input-placeholder {
+    color: transparent;
+  }
+  
+  .searchinput::placeholder {
+    color: transparent;
+  }
+  
