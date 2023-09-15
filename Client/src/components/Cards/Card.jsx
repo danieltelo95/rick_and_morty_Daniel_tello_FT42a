@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import { addFav, removeFav } from '../../redux/actions'
 import { connect } from "react-redux";
 import {useState, useEffect} from "react"
+import style from "./card.module.css"
+
 
 function Card( {id, name, species, gender, image, onClose, addFav, removeFav, myFavorites}) {
 
@@ -26,20 +28,23 @@ function Card( {id, name, species, gender, image, onClose, addFav, removeFav, my
    }, [myFavorites]);
 
    return (
-      
-      <div>
-         
-         <button onClick={handleFavorite}>{isFav? '❤️' : '🤍'}</button>
 
-         <button onClick={() => onClose(id)}>X</button>        
+      <div className ={style.cardContainer}>
+
+      <div className={style.imageContainer} >
+         <button onClick={handleFavorite}>{isFav? '❤️' : '🤍'}</button>
+         <img className={style.characterImage} src={image} alt='' />
             <NavLink to={`/detail/${id}`}>
-             <h2>Nombre:{name}</h2>
-            </NavLink>
+               <h2 className={style.name} >Nombre:{name}</h2>
+            </NavLink>                 
+         <button className ={style.closeButton} onClick={() => onClose(id)}>X</button>        
+      </div>
+      <div className ={style.atributes}>
          <h2>Species:{species} </h2>
          <h2>Gender:{gender} </h2>
-         <img src={image} alt='' />
-         
+      </div>       
       </div>
+         
    );
 }
 
