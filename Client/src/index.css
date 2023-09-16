@@ -6,7 +6,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to left, black,gray,  blue);
+  background: linear-gradient( #3494e6, #ec6ead);
+  height: 100vh; /* Ensure the gradient covers the entire viewport height */
+  margin: 0; /* Remove default margin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 

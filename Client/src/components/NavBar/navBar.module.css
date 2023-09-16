@@ -1,0 +1,19 @@
+.optionsContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Adjust the spacing as needed */
+    font-family: 'get_schwifty'; /* Use your desired font here */
+  }
+  
+  /* Style individual option items */
+.option {
+    font-size: 20px; /* Adjust the font size as needed */
+    color: #48DB5E; /* Set the color you prefer */
+    margin-right: 20px; /* Adjust the spacing between options */
+    cursor: pointer; /* Add a pointer cursor for interactivity */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+  }
+  
+.option:hover {
+    color: #EBE042; /* Change to your desired hover color */
+  }

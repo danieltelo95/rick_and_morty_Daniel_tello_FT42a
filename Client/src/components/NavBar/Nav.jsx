@@ -1,5 +1,6 @@
 import SearchBar from "../SearchBar/SearchBar";
 import { Link, useLocation } from "react-router-dom";
+import style from './navBar.module.css'
 
 const Nav = ({onSearch}) => {
 
@@ -12,9 +13,11 @@ const Nav = ({onSearch}) => {
                 <nav>
                     <div>
                         <SearchBar onSearch={onSearch}/>
-                            <Link to='/about'>ABOUT</Link> 
-                            <Link to='/home'> HOME</Link>
-                            <Link to='/favorites'>FAVORITES</Link>
+                        <div className={style.optionsContainer} >
+                            <div className={style.option }><Link to='/about'>ABOUT</Link></div>
+                            <div className={style.option }><Link to='/home'> HOME</Link></div>
+                            <div className={style.option }><Link to='/favorites'>FAVORITES</Link></div>
+                            </div>
                     </div>
                 </nav>
             )}
