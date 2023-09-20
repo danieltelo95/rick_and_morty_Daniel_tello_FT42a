@@ -44,13 +44,13 @@ function Card( {id, name, species, gender, image, onClose, addFav, removeFav, my
             <NavLink to={`/detail/${id}`}>
                <h2 className={style.name} >{name}</h2>
             </NavLink>                 
-         {/* <button className ={style.closeButton} onClick={() => onClose(id)}>X</button>         */}
+         
          <div className={style.closeButton}>
           {closeBtn && (
             <button
               onClick={() => {
                  onClose(id);
-                 console.log("prueba de close");
+                 
                }}
                >
               X
