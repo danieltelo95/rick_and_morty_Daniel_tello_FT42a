@@ -8,6 +8,13 @@ import style from "./card.module.css"
 function Card( {id, name, species, gender, image, onClose, addFav, removeFav, myFavorites}) {
 
    const [isFav, setIsFav] = useState(false)
+   const [closeBtn, setCloseBtn] = useState(true);
+
+   useEffect(() => {
+      if (!onClose) {
+        setCloseBtn(false);
+      }
+    }, []);
 
    const handleFavorite = () => {
       if(isFav){
@@ -15,7 +22,7 @@ function Card( {id, name, species, gender, image, onClose, addFav, removeFav, my
          removeFav(id);
       } else{
          setIsFav(true)
-         addFav({id, name, species, gender, image, onClose})
+         addFav({id, name, species, gender, image})
       }
    }
 
@@ -37,7 +44,19 @@ function Card( {id, name, species, gender, image, onClose, addFav, removeFav, my
             <NavLink to={`/detail/${id}`}>
                <h2 className={style.name} >{name}</h2>
             </NavLink>                 
-         <button className ={style.closeButton} onClick={() => onClose(id)}>X</button>        
+         {/* <button className ={style.closeButton} onClick={() => onClose(id)}>X</button>         */}
+         <div className={style.closeButton}>
+          {closeBtn && (
+            <button
+              onClick={() => {
+                 onClose(id);
+                 console.log("prueba de close");
+               }}
+               >
+              X
+            </button>
+          )}
+         </div>
       </div>
       <div className ={style.atributes}>
          <h2>{species} </h2>

@@ -40,7 +40,7 @@ const Favorites = ({ myFavorites }) => {
                         species={fav.species}
                         gender={fav.gender}
                         image={fav.image}
-                        onClose={fav.onClose}
+                     
                     />
                 )
             })

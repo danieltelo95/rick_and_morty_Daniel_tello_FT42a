@@ -18,8 +18,8 @@ function App() {
 
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-   const EMAIL = 'daniel@gmail.com';
-   const PASSWORD = '123asd';
+   const EMAIL = '';
+   const PASSWORD = '';
 
    const loginHandler = async (userData) => {
       try {
@@ -42,35 +42,61 @@ function App() {
 
    let [characters, setCharacters] = useState([]);
 
-   const onSearch = async (id) => {
+   async function onSearch(id) {
       try {
-         const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            }             
-         } catch (error) {
-            alert('¡No hay personajes con este ID!');
+        const {data} = await axios(
+          `http://localhost:3001/rickandmorty/character/${id}`
+        );
+  
+        if (data.name) {
+         console.log("Character add: ", id);
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          throw new Error("¡No hay personajes con este ID!");
+        }
+      } catch (error) {
+        console.log(error);
+        alert(error.message);
       }
-   }
+    }
 
-   const onClose = (id) => {
+   const onCloseHandler = (id) => {
       let deleted = characters.filter(character => character.id !== Number(id))
 
       setCharacters(deleted);
    }
 
+   function randomHandler() {
+      let memoria = [];
+  
+      let randomId = (Math.random() * 826).toFixed();
+      console.log("Random ID:", randomId);
+  
+      randomId = Number(randomId);
+  
+      if (!memoria.includes(randomId)) {
+        memoria.push(randomId);
+        onSearch(randomId);
+        console.log("Character added:", randomId);
+      } else {
+        alert("Ese personaje ya fue agregado");
+        return;
+      }
+   }
+
+
    return (
       <div className='App'>
          <img className='title' src={logo} alt='logo'/>
          
-         <Nav onSearch={onSearch} />
+         <Nav onSearch={onSearch} random={randomHandler}/>
          <Routes>
             <Route path='/' element={<Form loginHandler={loginHandler}/>}/>
-            <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
+            <Route path='/home' element={<Cards characters={characters} onClose={onCloseHandler}/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/detail/:id' element={<Detail/>}/>
-            <Route path='*' element={<ErrorPage/>}/>
             <Route path='/favorites' element={<Favorites/>}/>
+            <Route path="*" element={<ErrorPage/>}/>
          </Routes>          
       </div>
    );
