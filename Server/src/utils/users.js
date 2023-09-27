@@ -1,2 +1,2 @@
 
-module.exports = [{email: '', password: ''}]
+// module.exports = [{email: '', password: ''}]
